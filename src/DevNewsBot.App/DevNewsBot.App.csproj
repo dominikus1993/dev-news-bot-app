@@ -4,4 +4,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Htmx" />
+  </ItemGroup>
+
 </Project>

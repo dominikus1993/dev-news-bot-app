@@ -1,3 +1,4 @@
+using Htmx;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -12,8 +13,12 @@ public class IndexModel : PageModel
         _logger = logger;
     }
 
-    public void OnGet()
+    public async Task<IActionResult> OnGetAsync()
     {
-        _logger.LogInformation("OnGet called");
+        return Request.IsHtmx()
+            ? Content("<span>Hello, World!</span>", "text/html")
+            : Page();
     }
+    
+    
 }
