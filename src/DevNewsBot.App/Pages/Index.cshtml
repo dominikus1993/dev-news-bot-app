@@ -1,4 +1,5 @@
 ﻿@page
+@using DevNewsBot.App.ViewModel
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -12,4 +13,5 @@
             hx-target="#target">
         Click Me
     </button>
+    @await Html.PartialAsync("Shared/_Articles", new ArticlesViewModel() { Cursor = Model.Cursor, Articles = Model.Articles, Page = Model.ArticlesPage, PageSize = Model.PageSize })
 </div>

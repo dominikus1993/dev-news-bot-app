@@ -1,8 +1,10 @@
+using DevNewsBot.App.Core.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+builder.Services.AddSingleton<IArticlesProvider, FakeArticlesProvider>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
