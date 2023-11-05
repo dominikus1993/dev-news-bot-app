@@ -12,8 +12,8 @@ public class IndexModel : PageModel
     private readonly ILogger<IndexModel> _logger;
     private readonly IArticlesProvider _articlesProvider;
 
-    public long PageSize { get; private set; } = 1;
-    public List<Article> Articles { get; private set; }
+    public long PageSize { get; private set; } = 12;
+    public IReadOnlyList<Article> Articles { get; private set; }
     
     [BindProperty(SupportsGet = true)] 
     public int Cursor { get; set; } = 1;
@@ -35,9 +35,9 @@ public class IndexModel : PageModel
         
         if (isHtmx)
         {
-            return Partial("Shared/_Articles", new ArticlesViewModel() { PageSize = PageSize, Page = ArticlesPage, Articles = articles.Articles.ToList(), Cursor = Cursor });
+            return Partial("Shared/_Articles", new ArticlesViewModel() { PageSize = PageSize, Page = ArticlesPage, Articles = articles.Articles, Cursor = Cursor, ArticlesQuantity = articles.Articles.Count });
         }
-        Articles = new List<Article>(articles.Articles);
+        Articles = articles.Articles;
         return Page();
     }
 

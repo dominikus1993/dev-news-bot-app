@@ -3,13 +3,13 @@ using DevNewsBot.App.Core.Model;
 namespace DevNewsBot.App.Core.Services;
 
 public sealed class PagedArticles(
-    IEnumerable<Article> articles,
+    IReadOnlyList<Article> articles,
     long currentPage,
     long quantity,
     long totalPages,
     long totalArticlesQuantity)
 {
-    public IEnumerable<Article> Articles { get; } = articles;
+    public IReadOnlyList<Article> Articles { get; } = articles;
     public long CurrentPage { get; } = currentPage;
     public long Quantity { get; } = quantity;
     public long TotalPages { get; } = totalPages;

@@ -1,7 +1,7 @@
 @model DevNewsBot.App.ViewModel.ArticlesViewModel
 @{
     ArgumentNullException.ThrowIfNull(Model);
-    var end = Model.Cursor + Model.PageSize;
+    var end = Model.Cursor + Model.ArticlesQuantity;
     var index = 0;
  }
  @if (Model.Articles is {Count: 0})
@@ -9,8 +9,9 @@
     return;     
  }
 
- @for (var i = Model.Cursor; i <= end; i++)
- {
+
+@for (var i = Model.Cursor; i <= end; i++)
+{
      <div
          class="card mb-4 ms-1" aria-hidden="true"
          @if (i == end)
@@ -25,13 +26,9 @@
          @if (i < end)
          {
              var article = Model.Articles[index];
-            <img alt="random image"
-                 width="125"
-                 height="125"
-                 src="https://picsum.photos/125/125?cache=@DateTime.Now.Ticks" class="card-img-top"/>
             <div class="card-body bg-dark text-white">
                 <div class="h6 card-title text-center ">
-                    Card #@index and Content @Model.Articles[index].Content
+                    <a href="@article.Link">@article.Title</a>
                 </div>
             </div>
          }
