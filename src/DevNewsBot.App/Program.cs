@@ -1,10 +1,13 @@
 using DevNewsBot.App.Core.Services;
+using DevNewsBot.App.Infrastructure.MongoDb;
+using DevNewsBot.App.Infrastructure.Providers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<IArticlesProvider, FakeArticlesProvider>();
+builder.AddMongoDb();
+builder.Services.AddSingleton<IArticlesProvider, MongoDbArticlesProvider>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
