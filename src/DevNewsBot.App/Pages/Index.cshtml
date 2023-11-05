@@ -13,5 +13,5 @@
             hx-target="#target">
         Click Me
     </button>
-    @await Html.PartialAsync("Shared/_Articles", new ArticlesViewModel() { Cursor = Model.Cursor, Articles = Model.Articles, Page = Model.ArticlesPage, PageSize = Model.PageSize })
+    @await Html.PartialAsync("Shared/_Articles", new ArticlesViewModel() { Cursor = Model.Cursor, Articles = Model.Articles, Page = Model.ArticlesPage, PageSize = Model.PageSize, ArticlesQuantity = Model.Articles.Count })
 </div>
