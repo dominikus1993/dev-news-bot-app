@@ -9,6 +9,7 @@
     <PackageVersion Include="Microsoft.Extensions.Options" Version="8.0.0-rc.2.23479.6" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0-rc.2.23479.6" />
     <PackageVersion Include="MongoDB.Driver" Version="2.22.0" />
+    <PackageVersion Include="MongoDB.EntityFrameworkCore" Version="7.0.0-preview.1" />
     <PackageVersion Include="OpenTelemetry.Api" Version="1.6.0" />
     <PackageVersion Include="SonarAnalyzer.CSharp" Version="8.48.0.56517">
       <PrivateAssets>all</PrivateAssets>

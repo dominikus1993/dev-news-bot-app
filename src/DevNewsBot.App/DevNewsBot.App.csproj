@@ -8,6 +8,7 @@
   <ItemGroup>
     <PackageReference Include="Htmx" />
     <PackageReference Include="MongoDB.Driver" />
+    <PackageReference Include="MongoDB.EntityFrameworkCore" />
   </ItemGroup>
 
 </Project>
